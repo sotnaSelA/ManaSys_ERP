@@ -1,0 +1,102 @@
+/*CRIANDO O BANCO*/
+create database caprichosa_db;
+
+/*UTILIZAR O BANCO*/
+use caprichosa_db;
+
+
+
+/*INSIRINDO DADOS NA TABELA "CLIENTES"*/
+insert into clientes (id_cpf_client, nome_c, cpf_c, dt_nasc_c, genero_c, contato_c, email_c, cep_c, estado_c,cidade_c,bairro_c, endereco_c, complemento_c, imovel_c,num_casa_c )
+values
+('02020202020','pedro','987.654.321.03', '19/03/1968','masculino','(27)99999-8888','@email.com','29000-054','es','viana', 'universal', 'rua jose engiliard', 'em frente a igreja catolica','casa','6');
+
+insert into clientes (id_cpf_client, nome_c, cpf_c, dt_nasc_c, genero_c, contato_c, email_c, cep_c, estado_c,cidade_c,bairro_c, endereco_c, complemento_c, imovel_c,num_casa_c )
+values
+('03030303030','josefa','630.963.852.98', '18/05/1950','feminino','(27)99987-8888','@email.com','29000-006','es','cariacica', 'campo grande', 'av expedito garcia', 'em frente a pracinha','ap','26');
+
+insert into clientes (id_cpf_client, nome_c, cpf_c, dt_nasc_c, genero_c, contato_c, email_c, cep_c, estado_c,cidade_c,bairro_c, endereco_c, complemento_c, imovel_c,num_casa_c )
+values
+('12345678912','lucas','123.654.879-99', '11/11/2000','masculino','(27)99987-7947','@email.com','29000-150','es','vila velha', 'praia da costa', 'rua das castanheiras', 'ed. joaquim soares, ao lado da sorveteria do joao','ap','36');
+
+
+
+/*INSIRINDO DADOS NA TABELA "FUNCIONARIOS"*/
+insert into funcionarios (id_cpf_func, nome_f, cpf_f, dt_nasc_f, genero_f, contato_f, email_f, cep_f, estado_f,cidade_f,bairro_f, endereco_f, complemento_f, imovel_f,num_casa_f)
+values
+('00000000000','suporte','000.000.000.00', '00/00/2000','outros','(27)99999-9990','@email.com','29000-000','es','vitoria', 'algum bairro de vitoria', 'em alguma rua', 'por aí','edifio empresarial','473');
+
+insert into funcionarios (id_cpf_func, nome_f, cpf_f, dt_nasc_f, genero_f, contato_f, email_f, cep_f, estado_f,cidade_f,bairro_f, endereco_f, complemento_f, imovel_f,num_casa_f)
+values
+('11111111111','vitoria','111.111.111-11', '17/06/2000','feminino','(27)99999-9991','@email.com','29000-001','es','viana', 'canaã', 'em alguma rua de canaã', 'por aí em canaã','casa','71');
+
+insert into funcionarios (id_cpf_func, nome_f, cpf_f, dt_nasc_f, genero_f, contato_f, email_f, cep_f, estado_f,cidade_f,bairro_f, endereco_f, complemento_f, imovel_f,num_casa_f)
+values
+('23232323232','maiara','124.598.759.66', '16/07/1995','feminino','(27)99999-3214','@email.com','25498-026','es','vila velha', 'vista da penha', 'rua das marias', 'final da rua','casa','103');
+
+insert into funcionarios (id_cpf_func, nome_f, cpf_f, dt_nasc_f, genero_f, contato_f, email_f, cep_f, estado_f,cidade_f,bairro_f, endereco_f, complemento_f, imovel_f,num_casa_f)
+values
+('44444444444','alessandro','444.444.444-44', '15/03/2001','masculino','(27)99999-9994','@email.com','29751-514','es','cariacica', 'nova rosa', 'rua 17', 'ao lado da praça','casa','06');
+
+
+
+/*INSIRINDO DADOS NA TABELA "MATERIAPRIMA"*/
+insert into materiaprima (material,tipo,cor,unid_met,obs_mat_prima)
+values
+('tecido','tricoline','vermelho','5 metros','bolinha branca');
+
+insert into materiaprima (material,tipo,cor,unid_met,obs_mat_prima)
+values
+('agulha','de costura','dourada','7 unidades','com girassol');
+
+insert into materiaprima (material,tipo,cor,unid_met,obs_mat_prima)
+values
+('tecido','malha','preto','10 metros','liso');
+insert into materiaprima (material,tipo,cor,unid_met,obs_mat_prima)
+values
+('linha','sintética','branca','6 rolos','1 rolo em uso');
+
+
+
+/*INSIRINDO DADOS NA TABELA "LOGIN"*/
+insert into login (usuario,senha,cont_senha,tp_user,funcionarios_id_cpf_func)
+values
+('suporte','senha071517','senha473','ADM','00000000000');
+
+insert into login (usuario,senha,cont_senha,tp_user,funcionarios_id_cpf_func)
+values
+('vitoria','senha1706','17062000','ADM','11111111111');
+
+insert into login (usuario,senha,tp_user,funcionarios_id_cpf_func)
+values
+('maiara','senha16071995','COM','23232323232');
+
+insert into login (usuario,senha,tp_user,funcionarios_id_cpf_func)
+values
+('alessandro','senha15032001','COM','44444444444');
+
+
+
+/*CONSuLTANDO O BANCO*/
+select*from pedidos;
+select*from funcionarios;
+select*from produtos;
+select*from clientes;
+select*from login;
+select*from materiaprima;
+
+/*ADICIONANDO UMA NOVA COLUNA*/
+alter table materiaprima add obs_mat_prima varchar(100);
+
+
+/*EXCLUINDO REGISTROS*/
+delete from materiaprima where idestoque= '2';
+
+
+
+
+
+
+/*____________________________ATENÇÃO____________________________*/
+/*cuidado_cuidado_cuidado(EXCLUIR O BANCO)cuidado_cuidado_cuidado*/
+DROP DATABASE caprichosa_db;
